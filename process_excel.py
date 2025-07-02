@@ -73,7 +73,7 @@ def preprocess_table(input_file):
     return result_df
 
 if __name__ == "__main__":
-    input_file = "10-12 copy.xlsx"
+    input_file = "2024三季度周报.xlsx"
     
     try:
         result = preprocess_table(input_file)
