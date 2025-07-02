@@ -2,14 +2,15 @@
 # -*- coding: utf-8 -*-
 """
 生成最终优化格式的季度工时统计报告
-添加项目总人天列，所有单元格填入具体数值
+从原始周报CSV文件直接生成最终优化格式的季度统计报告
+包含项目总人天列，所有单元格填入具体数值，便于Excel手动合并
 """
 
 import pandas as pd
 import chardet
 
-def load_optimized_data(file_path):
-    """加载优化格式数据"""
+def load_raw_data(file_path):
+    """加载原始周报CSV数据"""
     try:
         # 尝试不同编码读取
         for encoding in ['utf-8-sig', 'utf-8', 'gbk', 'gb2312']:
@@ -19,131 +20,109 @@ def load_optimized_data(file_path):
                 return df
             except:
                 continue
-        
+
         # 如果都失败，使用chardet检测
         with open(file_path, 'rb') as f:
             raw_data = f.read()
             result = chardet.detect(raw_data)
             encoding = result['encoding']
-        
+
         df = pd.read_csv(file_path, encoding=encoding)
         print(f"使用检测到的编码 {encoding} 读取文件")
         return df
-        
+
     except Exception as e:
         print(f"读取文件失败: {e}")
         return None
 
-def calculate_project_totals(df):
-    """计算每个项目的总人天数"""
-    # 重新构建完整数据，填充空值
-    complete_data = []
-    current_dept = ""
-    current_project = ""
-    current_quarter_total = ""
+def get_quarter(week):
+    """根据周次获取季度"""
+    if 1 <= week <= 13:
+        return 1
+    elif 14 <= week <= 26:
+        return 2
+    elif 27 <= week <= 39:
+        return 3
+    elif 40 <= week <= 52:
+        return 4
+    else:
+        return None
 
-    for _, row in df.iterrows():
-        dept = row['订单项目.归属中心']
-        project = row['订单项目.立项项目']
-        quarter_total = row['总人天']
+def merge_departments(df):
+    """合并T1和T1电子元件部门"""
+    df_copy = df.copy()
+    df_copy['订单项目.归属中心'] = df_copy['订单项目.归属中心'].replace('T1电子元件', 'T1')
+    return df_copy
 
-        # 填充空值
-        if dept == '' or pd.isna(dept):
-            dept = current_dept
-        else:
-            current_dept = dept
+def process_raw_data_to_quarterly(df):
+    """将原始数据处理为季度格式"""
+    print("正在处理原始数据...")
 
-        if project == '' or pd.isna(project):
-            project = current_project
-        else:
-            current_project = project
+    # 合并部门
+    df_merged = merge_departments(df)
 
-        if quarter_total == '' or pd.isna(quarter_total):
-            quarter_total = current_quarter_total
-        else:
-            current_quarter_total = quarter_total
+    # 过滤掉空值
+    df_clean = df_merged.dropna(subset=['订单项目.归属中心', '订单项目.立项项目', '订单项目.本周投入天数（最低半天）', '周报人'])
 
-        complete_data.append({
-            'dept': dept,
-            'project': project,
-            'quarter_total': float(quarter_total) if quarter_total != '' and pd.notna(quarter_total) else 0
-        })
+    # 添加季度列
+    df_clean = df_clean.copy()
+    df_clean['季度'] = df_clean['周次'].apply(get_quarter)
 
-    # 按项目分组，计算总人天（去重相同的季度总人天）
-    project_totals = {}
-    seen_combinations = set()
+    # 过滤掉无效季度
+    df_clean = df_clean[df_clean['季度'].notna()]
 
-    for data in complete_data:
-        dept = data['dept']
-        project = data['project']
-        quarter_total = data['quarter_total']
+    # 按部门、项目、季度、人员分组统计
+    quarterly_stats = df_clean.groupby(['订单项目.归属中心', '订单项目.立项项目', '季度', '周报人'])['订单项目.本周投入天数（最低半天）'].sum().reset_index()
+    quarterly_stats.columns = ['订单项目.归属中心', '订单项目.立项项目', '季度', '人员', '人天']
 
-        key = (dept, project)
-        combination_key = (dept, project, quarter_total)
+    # 计算每个项目每个季度的总人天
+    project_quarter_total = df_clean.groupby(['订单项目.归属中心', '订单项目.立项项目', '季度'])['订单项目.本周投入天数（最低半天）'].sum().reset_index()
+    project_quarter_total.columns = ['订单项目.归属中心', '订单项目.立项项目', '季度', '季度总人天']
 
-        if combination_key not in seen_combinations and quarter_total > 0:
-            seen_combinations.add(combination_key)
-            if key not in project_totals:
-                project_totals[key] = 0
-            project_totals[key] += quarter_total
+    # 合并数据
+    result = quarterly_stats.merge(project_quarter_total, on=['订单项目.归属中心', '订单项目.立项项目', '季度'])
 
-    return project_totals
+    # 排序
+    result = result.sort_values(['订单项目.归属中心', '订单项目.立项项目', '季度', '人天'], ascending=[True, True, True, False])
 
-def generate_final_optimized_report(df):
+    return result
+
+
+
+def generate_final_optimized_report(quarterly_df):
     """生成最终优化格式的报告"""
     print("正在生成最终优化格式的季度工时统计报告...")
-    
-    # 计算项目总人天
-    project_totals = calculate_project_totals(df)
-    
+
+    # 计算每个项目的总人天（跨所有季度）- 需要去重相同的季度总人天
+    project_quarter_unique = quarterly_df[['订单项目.归属中心', '订单项目.立项项目', '季度', '季度总人天']].drop_duplicates()
+    project_totals = project_quarter_unique.groupby(['订单项目.归属中心', '订单项目.立项项目'])['季度总人天'].sum().reset_index()
+    project_totals_dict = {}
+    for _, row in project_totals.iterrows():
+        key = (row['订单项目.归属中心'], row['订单项目.立项项目'])
+        project_totals_dict[key] = row['季度总人天']
+
     # 创建结果列表
     result_rows = []
-    
-    # 重新构建数据，确保所有单元格都有值
-    current_dept = ""
-    current_project = ""
-    current_quarter = ""
-    current_quarter_total = ""
-    
-    for _, row in df.iterrows():
+
+    # 处理每一行数据，确保所有单元格都有值
+    for _, row in quarterly_df.iterrows():
         dept = row['订单项目.归属中心']
         project = row['订单项目.立项项目']
-        quarter = row['季度']
-        quarter_total = row['总人天']
+        quarter = int(row['季度'])
+        quarter_total = row['季度总人天']
         person = row['人员']
         person_days = row['人天']
-        
-        # 处理空值，填入上一行的值
-        if dept == '' or pd.isna(dept):
-            dept = current_dept
-        else:
-            current_dept = dept
-            
-        if project == '' or pd.isna(project):
-            project = current_project
-        else:
-            current_project = project
-            
-        if quarter == '' or pd.isna(quarter):
-            quarter = current_quarter
-        else:
-            current_quarter = quarter
-            
-        if quarter_total == '' or pd.isna(quarter_total):
-            quarter_total = current_quarter_total
-        else:
-            current_quarter_total = quarter_total
-        
+
         # 获取项目总人天
         project_key = (dept, project)
-        project_total = project_totals.get(project_key, 0)
-        
+        project_total = project_totals_dict.get(project_key, 0)
+
         # 格式化数据
-        quarter_display = f"第{int(quarter)}季度" if quarter != '' and pd.notna(quarter) else ""
+        quarter_display = f"第{quarter}季度"
         project_total_str = f"{project_total:.1f}"
-        quarter_total_str = f"{float(quarter_total):.1f}" if quarter_total != '' and pd.notna(quarter_total) else ""
-        person_days_str = f"{float(person_days):.1f}" if person_days != '' and pd.notna(person_days) else ""
-        
+        quarter_total_str = f"{quarter_total:.1f}"
+        person_days_str = f"{person_days:.1f}"
+
         result_rows.append({
             '订单项目.归属中心': dept,
             '订单项目.立项项目': project,
@@ -153,10 +132,10 @@ def generate_final_optimized_report(df):
             '人员': person,
             '人天': person_days_str
         })
-    
+
     # 转换为DataFrame
     result_df = pd.DataFrame(result_rows)
-    
+
     return result_df
 
 def save_final_report(df, output_file):
@@ -262,39 +241,43 @@ def validate_data(df):
 
 def main():
     """主函数"""
-    input_file = '优化格式季度工时统计报告.csv'
+    input_file = '2025年1-6.csv'  # 原始周报CSV文件
     output_file = '最终优化格式季度工时统计报告.csv'
-    
+
     try:
-        # 加载数据
-        print("正在加载优化格式数据...")
-        df = load_optimized_data(input_file)
-        
-        if df is None:
+        # 加载原始数据
+        print("正在加载原始周报数据...")
+        raw_df = load_raw_data(input_file)
+
+        if raw_df is None:
             print("❌ 无法加载数据文件")
             return
-        
-        print(f"成功加载 {len(df)} 行数据")
-        print(f"原始列名: {list(df.columns)}")
-        
+
+        print(f"成功加载 {len(raw_df)} 行原始数据")
+        print(f"原始列名: {list(raw_df.columns)}")
+
+        # 处理为季度格式
+        quarterly_df = process_raw_data_to_quarterly(raw_df)
+        print(f"处理后得到 {len(quarterly_df)} 行季度数据")
+
         # 生成最终优化报告
-        final_df = generate_final_optimized_report(df)
-        
+        final_df = generate_final_optimized_report(quarterly_df)
+
         # 保存报告
         save_final_report(final_df, output_file)
-        
+
         # 验证数据
         validate_data(final_df)
-        
+
         # 生成统计信息
         generate_statistics(final_df)
-        
+
         print("\n" + "=" * 80)
         print("✅ 最终优化格式季度报告生成完成！")
         print("=" * 80)
         print(f"📁 输出文件: {output_file}")
         print("💡 提示: 所有单元格都已填入具体数值，便于Excel手动合并")
-        
+
     except Exception as e:
         print(f"❌ 生成报告过程中出现错误: {e}")
         import traceback
