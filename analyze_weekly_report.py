@@ -219,6 +219,111 @@ def generate_summary_report(df, dept_project_time, person_project_time):
     print(f"   部门名称: {busiest_dept}")
     print(f"   总工时: {busiest_dept_time:.1f} 天")
 
+def get_quarter(week):
+    """根据周次获取季度"""
+    if 1 <= week <= 13:
+        return 1
+    elif 14 <= week <= 26:
+        return 2
+    elif 27 <= week <= 39:
+        return 3
+    elif 40 <= week <= 52:
+        return 4
+    else:
+        return None
+
+def merge_departments(df):
+    """合并T1和T1电子元件部门"""
+    df_copy = df.copy()
+    df_copy['订单项目.归属中心'] = df_copy['订单项目.归属中心'].replace('T1电子元件', 'T1')
+    return df_copy
+
+def generate_quarterly_report(df):
+    """生成季度统计报告"""
+    print("\n" + "=" * 80)
+    print("📊 季度工时统计报告")
+    print("=" * 80)
+
+    # 合并部门
+    df_merged = merge_departments(df)
+
+    # 过滤掉空值
+    df_clean = df_merged.dropna(subset=['订单项目.归属中心', '订单项目.立项项目', '订单项目.本周投入天数（最低半天）', '周报人'])
+
+    # 添加季度列
+    df_clean['季度'] = df_clean['周次'].apply(get_quarter)
+
+    # 过滤掉无效季度
+    df_clean = df_clean[df_clean['季度'].notna()]
+
+    # 按部门、项目、季度、人员分组统计
+    quarterly_stats = df_clean.groupby(['订单项目.归属中心', '订单项目.立项项目', '季度', '周报人'])['订单项目.本周投入天数（最低半天）'].sum().reset_index()
+    quarterly_stats.columns = ['订单项目.归属中心', '订单项目.立项项目', '季度', '人员', '人天']
+
+    # 计算每个项目每个季度的总人天
+    project_quarter_total = df_clean.groupby(['订单项目.归属中心', '订单项目.立项项目', '季度'])['订单项目.本周投入天数（最低半天）'].sum().reset_index()
+    project_quarter_total.columns = ['订单项目.归属中心', '订单项目.立项项目', '季度', '总人天']
+
+    # 合并数据
+    result = quarterly_stats.merge(project_quarter_total, on=['订单项目.归属中心', '订单项目.立项项目', '季度'])
+
+    # 排序
+    result = result.sort_values(['订单项目.归属中心', '订单项目.立项项目', '季度', '人天'], ascending=[True, True, True, False])
+
+    # 保存为CSV文件
+    output_file = '季度工时统计报告.csv'
+    result.to_csv(output_file, index=False, encoding='utf-8-sig')
+    print(f"✅ 季度统计报告已保存到: {output_file}")
+
+    # 打印格式化表格
+    print("\n📋 季度工时统计详表:")
+    print("-" * 120)
+    print(f"{'部门':<20} {'项目':<40} {'季度':<6} {'总人天':<8} {'人员':<10} {'人天':<8}")
+    print("-" * 120)
+
+    current_dept = ""
+    current_project = ""
+    current_quarter = ""
+
+    for _, row in result.iterrows():
+        dept = row['订单项目.归属中心']
+        project = row['订单项目.立项项目']
+        quarter = f"第{int(row['季度'])}季度"
+        total_days = f"{row['总人天']:.1f}"
+        person = row['人员']
+        person_days = f"{row['人天']:.1f}"
+
+        # 只在部门、项目或季度变化时显示
+        dept_display = dept if dept != current_dept else ""
+        project_display = project if project != current_project or dept != current_dept else ""
+        quarter_display = quarter if quarter != current_quarter or project != current_project or dept != current_dept else ""
+        total_display = total_days if quarter != current_quarter or project != current_project or dept != current_dept else ""
+
+        print(f"{dept_display:<20} {project_display:<40} {quarter_display:<6} {total_display:<8} {person:<10} {person_days:<8}")
+
+        current_dept = dept
+        current_project = project
+        current_quarter = quarter
+
+    print("-" * 120)
+
+    # 生成汇总统计
+    print(f"\n📈 季度汇总统计:")
+    quarter_summary = result.groupby('季度').agg({
+        '总人天': 'sum',
+        '订单项目.立项项目': 'nunique',
+        '人员': 'nunique'
+    }).reset_index()
+
+    for _, row in quarter_summary.iterrows():
+        quarter = int(row['季度'])
+        total_days = row['总人天']
+        projects = row['订单项目.立项项目']
+        people = row['人员']
+        print(f"   第{quarter}季度: 总工时{total_days:.1f}天 | 项目{projects}个 | 参与人员{people}人")
+
+    return result
+
 def main():
     """主函数"""
     file_path = '2025年1-6.csv'
@@ -242,7 +347,10 @@ def main():
         
         # 生成汇总报告
         generate_summary_report(df, dept_project_time, person_project_time)
-        
+
+        # 生成季度统计报告
+        quarterly_result = generate_quarterly_report(df)
+
         print("\n" + "=" * 80)
         print("✅ 分析完成！")
         print("=" * 80)
