@@ -1,0 +1,871 @@
+{
+  "2023软件研发&2023RJ": {
+    "total_days": 553.8,
+    "core_work_days": 553.8,
+    "equipment_tuning_days": 0.0,
+    "people_count": 8,
+    "record_count": 133,
+    "type_distribution": {
+      "software_development": {
+        "count": 78,
+        "total_days": 362.8
+      },
+      "software_maintenance": {
+        "count": 44,
+        "total_days": 158.5
+      },
+      "system_integration": {
+        "count": 5,
+        "total_days": 23.0
+      },
+      "learning_research": {
+        "count": 3,
+        "total_days": 2.5
+      },
+      "other_work": {
+        "count": 3,
+        "total_days": 7.0
+      }
+    }
+  },
+  "麦捷LTCC检测&MJ-LT1602HS-01": {
+    "total_days": 5.0,
+    "core_work_days": 5.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 5,
+    "type_distribution": {
+      "other_work": {
+        "count": 3,
+        "total_days": 2.5
+      },
+      "software_maintenance": {
+        "count": 2,
+        "total_days": 2.5
+      }
+    }
+  },
+  "三环HTCC生瓷挂壁检测&SH-GBAE0813-01": {
+    "total_days": 9.1,
+    "core_work_days": 9.1,
+    "equipment_tuning_days": 0.0,
+    "people_count": 3,
+    "record_count": 8,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 3,
+        "total_days": 3.3
+      },
+      "software_development": {
+        "count": 2,
+        "total_days": 3.5
+      },
+      "other_work": {
+        "count": 3,
+        "total_days": 2.3
+      }
+    }
+  },
+  "中瓷吸塑盘内单只检测&ZC-SCXSDK-01": {
+    "total_days": 3.5,
+    "core_work_days": 3.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 3,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 2,
+        "total_days": 2.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷熟瓷AOI检测复制4套&ZC-SC4090-04": {
+    "total_days": 2.5,
+    "core_work_days": 2.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 2,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "T4图片智能分析平台&T4-PicAI-24": {
+    "total_days": 5.0,
+    "core_work_days": 5.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 5,
+    "type_distribution": {
+      "software_development": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 4.0
+      }
+    }
+  },
+  "在线AI通孔检测系统&ZC03": {
+    "total_days": 12.5,
+    "core_work_days": 12.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 3,
+    "record_count": 9,
+    "type_distribution": {
+      "software_development": {
+        "count": 5,
+        "total_days": 7.0
+      },
+      "software_maintenance": {
+        "count": 3,
+        "total_days": 3.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "AI视觉贴装系统-散料摆盘机&ZC-SLBPJ3-01": {
+    "total_days": 48.0,
+    "core_work_days": 48.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 21,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 8,
+        "total_days": 17.0
+      },
+      "system_integration": {
+        "count": 2,
+        "total_days": 3.0
+      },
+      "software_development": {
+        "count": 8,
+        "total_days": 22.5
+      },
+      "other_work": {
+        "count": 2,
+        "total_days": 3.5
+      },
+      "learning_research": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "AI视觉贴装系统-高精度贴环机&ZC-TH0201-01": {
+    "total_days": 192.0,
+    "core_work_days": 180.0,
+    "equipment_tuning_days": 12.0,
+    "people_count": 6,
+    "record_count": 46,
+    "type_distribution": {
+      "other_work": {
+        "count": 1,
+        "total_days": 4.0
+      },
+      "software_maintenance": {
+        "count": 18,
+        "total_days": 52.0
+      },
+      "learning_research": {
+        "count": 1,
+        "total_days": 2.0
+      },
+      "software_development": {
+        "count": 22,
+        "total_days": 117.0
+      },
+      "equipment_tuning": {
+        "count": 2,
+        "total_days": 12.0
+      },
+      "system_integration": {
+        "count": 2,
+        "total_days": 5.0
+      }
+    }
+  },
+  "商务专用-AI视觉涂布系统&ZC-SCZX06-01": {
+    "total_days": 4.0,
+    "core_work_days": 4.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 3,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 2.0
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "system_integration": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷6寸生瓷图案检测&ZC-SC0608-01": {
+    "total_days": 14.0,
+    "core_work_days": 14.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 8,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 5,
+        "total_days": 9.0
+      },
+      "other_work": {
+        "count": 2,
+        "total_days": 2.0
+      },
+      "software_development": {
+        "count": 1,
+        "total_days": 3.0
+      }
+    }
+  },
+  "中瓷熟瓷AOI检测复制2套&ZC-SC4090-03": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "system_integration": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷熟瓷注塑盘单颗检第三次复购&ZC-SCDK22-04": {
+    "total_days": 7.5,
+    "core_work_days": 7.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 6,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 5,
+        "total_days": 6.5
+      },
+      "software_development": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "AI视觉贴装系统-六面检设备&ZC-SCLPX08-01": {
+    "total_days": 28.5,
+    "core_work_days": 28.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 3,
+    "record_count": 18,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 8,
+        "total_days": 13.5
+      },
+      "software_development": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "system_integration": {
+        "count": 3,
+        "total_days": 5.5
+      },
+      "other_work": {
+        "count": 6,
+        "total_days": 8.5
+      }
+    }
+  },
+  "AI视觉贴装系统-陶瓷基板AOI设备改造&ZC-DHL240-01": {
+    "total_days": 21.0,
+    "core_work_days": 21.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 11,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 8,
+        "total_days": 10.0
+      },
+      "software_development": {
+        "count": 2,
+        "total_days": 9.0
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "麦捷LTCC在线抽检模组&MJ-YS0301-01": {
+    "total_days": 12.8,
+    "core_work_days": 12.3,
+    "equipment_tuning_days": 0.5,
+    "people_count": 3,
+    "record_count": 8,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 2,
+        "total_days": 2.3
+      },
+      "software_development": {
+        "count": 3,
+        "total_days": 8.0
+      },
+      "other_work": {
+        "count": 2,
+        "total_days": 2.0
+      },
+      "equipment_tuning": {
+        "count": 1,
+        "total_days": 0.5
+      }
+    }
+  },
+  "顺络LTCC检测&SL06": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "AI视觉贴装系统-熟瓷注塑盘单颗检第四次复购&ZC-SCDK22-05": {
+    "total_days": 6.5,
+    "core_work_days": 6.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 5,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 4.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "麦捷LTCC检测复购&MJ-LT1602HS-02": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "AI视觉涂布系统-AOI视觉检测机&ZC-ZX0607-01": {
+    "total_days": 33.5,
+    "core_work_days": 33.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 3,
+    "record_count": 15,
+    "type_distribution": {
+      "system_integration": {
+        "count": 6,
+        "total_days": 10.0
+      },
+      "software_maintenance": {
+        "count": 5,
+        "total_days": 12.5
+      },
+      "other_work": {
+        "count": 4,
+        "total_days": 11.0
+      }
+    }
+  },
+  "ZC熟瓷AOI检测&ZC02": {
+    "total_days": 8.8,
+    "core_work_days": 8.8,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 6,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 7.3
+      },
+      "software_development": {
+        "count": 2,
+        "total_days": 1.5
+      }
+    }
+  },
+  "T4-华能集团西安热工院相关项目&T4-TPRI-25": {
+    "total_days": 47.0,
+    "core_work_days": 47.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 11,
+    "type_distribution": {
+      "software_development": {
+        "count": 9,
+        "total_days": 43.0
+      },
+      "software_maintenance": {
+        "count": 2,
+        "total_days": 4.0
+      }
+    }
+  },
+  "AI视觉钎焊上下料系统-贴环AOI检测上料机&ZC-HP0502-01": {
+    "total_days": 2.0,
+    "core_work_days": 2.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "system_integration": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "MEIBAN&CL4&Assy&&&Testing&automation&(ATA)&NRE&&&POC&MB-ATA0401-01": {
+    "total_days": 7.5,
+    "core_work_days": 7.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 3,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 0.5
+      },
+      "software_development": {
+        "count": 2,
+        "total_days": 7.0
+      }
+    }
+  },
+  "中瓷熟瓷整片AOI检测第三次复购补充&ZC-SC4090-06": {
+    "total_days": 3.0,
+    "core_work_days": 3.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 3,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 3,
+        "total_days": 3.0
+      }
+    }
+  },
+  "AI视觉涂布系统-自动印刷机&ZC-ZX0603-01": {
+    "total_days": 4.0,
+    "core_work_days": 4.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 2,
+    "type_distribution": {
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 3.0
+      }
+    }
+  },
+  "AI视觉成品检测系统-单只检验AOI设备&ZC-SCDK22-01": {
+    "total_days": 8.5,
+    "core_work_days": 8.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 6,
+    "type_distribution": {
+      "software_development": {
+        "count": 1,
+        "total_days": 4.0
+      },
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 3.0
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 1.5
+      }
+    }
+  },
+  "顺络LTCC工控机升级&SL-YSSJ-01": {
+    "total_days": 4.5,
+    "core_work_days": 3.5,
+    "equipment_tuning_days": 1.0,
+    "people_count": 1,
+    "record_count": 4,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 2,
+        "total_days": 2.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "equipment_tuning": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷tray内单只检测复购第四台&ZC-SCDK22-03": {
+    "total_days": 2.5,
+    "core_work_days": 2.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 2,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "三环熟瓷声表AOI设备&SH-SSAE6001-01": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷生瓷AOI检测项目&ZC01": {
+    "total_days": 9.0,
+    "core_work_days": 9.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 3,
+    "record_count": 6,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 3,
+        "total_days": 2.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 3.0
+      },
+      "system_integration": {
+        "count": 1,
+        "total_days": 2.0
+      },
+      "software_development": {
+        "count": 1,
+        "total_days": 1.5
+      }
+    }
+  },
+  "AI视觉涂布系统-炉前检测分料机&ZC-ZX0604-01": {
+    "total_days": 13.5,
+    "core_work_days": 13.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 12,
+    "type_distribution": {
+      "software_development": {
+        "count": 2,
+        "total_days": 2.5
+      },
+      "other_work": {
+        "count": 5,
+        "total_days": 6.0
+      },
+      "system_integration": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 4.0
+      }
+    }
+  },
+  "麦捷黄光检测&MJ-YL1602HS-01": {
+    "total_days": 2.0,
+    "core_work_days": 2.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_development": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "轩田-瑶华点胶检测模组复制&XT01-01": {
+    "total_days": 2.5,
+    "core_work_days": 2.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 2,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 2,
+        "total_days": 2.5
+      }
+    }
+  },
+  "25年T4图片智能分析平台&T4-PicAI-25": {
+    "total_days": 39.0,
+    "core_work_days": 39.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 14,
+    "type_distribution": {
+      "software_development": {
+        "count": 8,
+        "total_days": 29.0
+      },
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 7.5
+      },
+      "system_integration": {
+        "count": 2,
+        "total_days": 2.5
+      }
+    }
+  },
+  "智能分析系统-质检六面检设备&ZC-ZJLMJ02-01": {
+    "total_days": 8.0,
+    "core_work_days": 8.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 7,
+    "type_distribution": {
+      "other_work": {
+        "count": 1,
+        "total_days": 2.0
+      },
+      "software_maintenance": {
+        "count": 5,
+        "total_days": 5.0
+      },
+      "system_integration": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "AI视觉贴装系统-钎焊炉上下料设备&ZC-SCQH2016-02": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷贴环兼容AOI检测项目&ZC-SCTHJR3030-01": {
+    "total_days": 2.0,
+    "core_work_days": 2.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 2,
+    "type_distribution": {
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      },
+      "system_integration": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "AI视觉贴装系统-熟瓷整片AOI检测设备&ZC-SC4090-05": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "中瓷老厂涂胶检测&ZC-TJ1001-01": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  },
+  "盛雄孔检测模组&SX-HT2001HS-01": {
+    "total_days": 0.5,
+    "core_work_days": 0.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "system_integration": {
+        "count": 1,
+        "total_days": 0.5
+      }
+    }
+  },
+  "25年T4视频分析平台&T4-AVSAI-25": {
+    "total_days": 3.0,
+    "core_work_days": 3.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 3.0
+      }
+    }
+  },
+  "通富点胶-轩田&XT03": {
+    "total_days": 8.5,
+    "core_work_days": 8.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 5,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 4,
+        "total_days": 6.5
+      },
+      "other_work": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "AI视觉贴装系统-滚轮式裂片机&ZC-SCLPX0803-01": {
+    "total_days": 3.0,
+    "core_work_days": 3.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 2,
+    "type_distribution": {
+      "other_work": {
+        "count": 2,
+        "total_days": 3.0
+      }
+    }
+  },
+  "25年T4声像仪以及声学分析平台&T4-AcousticAI-25": {
+    "total_days": 4.0,
+    "core_work_days": 4.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_development": {
+        "count": 1,
+        "total_days": 4.0
+      }
+    }
+  },
+  "AI视觉叠压系统-质检镀镍瓷件六面检设备&ZC-DNCJ02-01": {
+    "total_days": 1.5,
+    "core_work_days": 1.5,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 1.5
+      }
+    }
+  },
+  "中瓷生瓷在线AI图形检测系统复制&ZC-SC0802-01": {
+    "total_days": 2.0,
+    "core_work_days": 2.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 2,
+    "record_count": 3,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 3,
+        "total_days": 2.0
+      }
+    }
+  },
+  "三环HTCC生瓷挂壁检测-复购&SH-GBAE0814-01": {
+    "total_days": 2.0,
+    "core_work_days": 2.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "software_maintenance": {
+        "count": 1,
+        "total_days": 2.0
+      }
+    }
+  },
+  "中瓷熟瓷镀镍AOI检项目&ZC-SC4051-01": {
+    "total_days": 1.0,
+    "core_work_days": 1.0,
+    "equipment_tuning_days": 0.0,
+    "people_count": 1,
+    "record_count": 1,
+    "type_distribution": {
+      "other_work": {
+        "count": 1,
+        "total_days": 1.0
+      }
+    }
+  }
+}

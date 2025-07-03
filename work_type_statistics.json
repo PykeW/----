@@ -1,0 +1,37 @@
+{
+  "software_development": {
+    "count": 151,
+    "total_days": 630.3,
+    "average_days": 4.174172185430463
+  },
+  "other_work": {
+    "count": 49,
+    "total_days": 75.3,
+    "average_days": 1.536734693877551
+  },
+  "software_maintenance": {
+    "count": 174,
+    "total_days": 371.4,
+    "average_days": 2.1344827586206896
+  },
+  "system_integration": {
+    "count": 28,
+    "total_days": 58.5,
+    "average_days": 2.0892857142857144
+  },
+  "learning_research": {
+    "count": 5,
+    "total_days": 6.5,
+    "average_days": 1.3
+  },
+  "equipment_tuning": {
+    "count": 4,
+    "total_days": 13.5,
+    "average_days": 3.375
+  },
+  "unknown": {
+    "count": 1,
+    "total_days": 0.0,
+    "average_days": 0.0
+  }
+}
